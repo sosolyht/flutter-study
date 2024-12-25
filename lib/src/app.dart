@@ -14,16 +14,19 @@ class _AppState extends State<App> {
   @override
   void initState() {
     super.initState();
-    router = GoRouter(routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const Home(),
-      ),
-      GoRoute(
-        path: '/detail',
-        builder: (context, state) => const Home(),
-      )
-    ], initialLocation: '/');
+    router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const Home(),
+        ),
+        GoRoute(
+          path: '/detail',
+          builder: (context, state) => const Home(),
+        ),
+      ],
+      initialLocation: '/',
+    );
   }
 
   @override
@@ -32,9 +35,10 @@ class _AppState extends State<App> {
       routerConfig: router,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-            elevation: 0,
-            backgroundColor: Color(0xff1C1C1C),
-            titleTextStyle: TextStyle(color: Colors.white)),
+          elevation: 0,
+          backgroundColor: Color(0xff1C1C1C),
+          titleTextStyle: TextStyle(color: Colors.white),
+        ),
         scaffoldBackgroundColor: const Color(0xff1C1C1C),
       ),
     );
