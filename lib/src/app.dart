@@ -33,7 +33,7 @@ class _AppState extends State<App> {
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
             elevation: 0,
-            backgroundColor: const Color(0xff1C1C1C),
+            backgroundColor: Color(0xff1C1C1C),
             titleTextStyle: TextStyle(color: Colors.white)),
         scaffoldBackgroundColor: const Color(0xff1C1C1C),
       ),
