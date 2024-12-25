@@ -1,4 +1,5 @@
 import 'package:bookreview/src/common/interceptor/custom_interceptor.dart';
+import 'package:bookreview/src/common/model/naver_book_search_option.dart';
 import 'package:bookreview/src/common/repository/naver_api_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,16 @@ class MyApp extends StatelessWidget {
       ],
       child: Builder(
         builder: (context) => FutureBuilder(
-          future: context.read<NaverBookRepository>().searchBooks(),
+          future: context
+              .read<NaverBookRepository>()
+              .searchBooks(const NaverBookSearchOption.init(query: '플러터')),
           builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return MaterialApp(
+                  home: Center(
+                child: Text('${snapshot.data?.items?.length ?? 0}'),
+              ));
+            }
             return Container();
           },
         ),
